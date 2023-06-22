@@ -17,7 +17,7 @@ import { useContext, useState } from "react";
 import { FormStepContext } from "./FormStepContext";
 import { STEPS } from "./Constants";
 
-export function TransportDetails() {
+export function GoodsRetrieved() {
   const { register, handleSubmit, control } = useForm<{
     clientRef: string;
     confirmDate: string;
@@ -32,10 +32,10 @@ export function TransportDetails() {
   const { setStep } = useContext(FormStepContext);
 
   const goBack = () => {
-    setStep(STEPS.CONFIRM);
+    setStep(STEPS.FLIGHT);
   };
 
-  const [checked, setChecked] = useState(true);
+  const [checked, setChecked] = useState(false);
 
   return (
     <FormWrapperText tittle="Potvrzení Přepravy">
@@ -43,7 +43,7 @@ export function TransportDetails() {
         <Form
           onFinish={handleSubmit((data) => {
             console.log("Data submited", data);
-            setStep(STEPS.PICKED);
+            setStep(STEPS.DELIVERED);
           })}
           className="formBox shadowBox p-5 rounded my-4 w-100"
         >
@@ -214,4 +214,4 @@ export function TransportDetails() {
     </FormWrapperText>
   );
 }
-export default TransportDetails;
+export default GoodsRetrieved;

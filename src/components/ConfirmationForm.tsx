@@ -2,6 +2,9 @@ import { FormWrapperText } from "./formWrapperText";
 import { TextField } from "@mui/material";
 import { useFieldArray, useForm } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
+import { useContext } from "react";
+import { FormStepContext } from "./FormStepContext";
+import { STEPS } from "./Constants";
 
 type Formvalues = {
   transportName: string;
@@ -34,14 +37,18 @@ export function ConfirmationForm() {
     control,
   });
 
+  const { step, setStep } = useContext(FormStepContext);
+  console.log(step);
+
   const onSubmit = (data: Formvalues) => {
     console.log("Form submitted", data);
+    setStep(STEPS.TRANSPORT);
   };
 
   return (
     <FormWrapperText tittle="Detaily Zásilky">
       <form
-        className="shadowBox p-5 rounded my-4"
+        className="shadowBox p-5 rounded my-4 confirmForm"
         onSubmit={handleSubmit(onSubmit)}
         noValidate
       >
@@ -67,7 +74,9 @@ export function ConfirmationForm() {
           {fields.map((field, index) => {
             return (
               <div className="packWrapper" key={field.id}>
-                <h3 className="my-5">Balení číslo {index + 1}</h3>
+                <h3 className="packNumber mt-2 mb-3">
+                  Balení číslo {index + 1}
+                </h3>
                 <div className="inputWrapper">
                   <div className="textfield">
                     <TextField
@@ -188,7 +197,7 @@ export function ConfirmationForm() {
                         })
                       }
                     >
-                      Přidat balení
+                      Přidat
                     </button>
                   )}
                   {index === fields.length - 1 && (

@@ -1,5 +1,4 @@
 @use "./colors" as *;
-
 .tittle {
   font-size: 35px;
   font-family: Poppins, Georgia, "Times New Roman", Times, serif;
@@ -15,39 +14,48 @@
   flex-wrap: wrap;
   margin: 40px;
 }
-
-.inputWrapper {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
 .shadowBox {
   box-shadow: 0px 0px 15px $main;
 }
 
-.textfield {
-  display: inline-block;
+.confirmForm {
+  position: relative;
 
-  .input input {
-    font-weight: 700;
-    color: $main;
-    font-size: 18px;
+  .inputWrapper {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
   }
 
-  .Muiinput-base::after {
-    color: $main;
+  .textfield {
+    display: inline-block;
+
+    .input input {
+      font-weight: 700;
+      color: $main;
+      font-size: 18px;
+    }
+
+    .input label {
+      font-weight: 700;
+      color: $shipmentPage;
+      font-size: 18px;
+    }
+
+    .Muiinput-base::after {
+      color: $main;
+    }
   }
-}
 
-.error {
-  color: red;
-  font-size: 12px;
-  text-align: left;
-}
+  .error {
+    color: red;
+    font-size: 12px;
+    text-align: left;
+  }
 
-.packWrapper:not(:last-child) {
-  padding-bottom: 25px;
-  border-bottom: 2px solid $main;
+  .packWrapper:not(:last-child) {
+    padding-bottom: 25px;
+    border-bottom: 2px solid $main;
+  }
 }

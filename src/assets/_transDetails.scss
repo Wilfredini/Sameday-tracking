@@ -1,10 +1,85 @@
-.transportDetailsWrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+@use "./colors" as *;
 
-  .pickerWrapper {
-    margin: 25px;
+.transportForm {
+  .formBox {
+    position: relative;
+  }
+
+  .updateSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    .deactive {
+      font-size: 16px;
+      font-weight: 600;
+      color: $main;
+    }
+    .active {
+      font-size: 16px;
+      font-weight: 600;
+      color: green;
+    }
+  }
+
+  .transportDetailsWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .pickerWrapper {
+      margin: 25px;
+    }
+  }
+
+  .timePickerWrapper,
+  .datePickerWrapper {
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+  }
+
+  .textfield {
+    display: inline-block;
+
+    .input input {
+      font-weight: 700;
+      color: $main;
+      font-size: 18px;
+    }
+
+    .input label {
+      font-weight: 700;
+      color: $shipmentPage;
+      font-size: 18px;
+    }
+
+    .Muiinput-base::after {
+      color: $shipmentPage;
+    }
+  }
+
+  .description {
+    font-weight: 700;
+    color: $shipmentPage;
+    font-size: 12px;
+  }
+
+  .checkBox {
+    font-weight: 600;
+    color: $main;
+  }
+
+  .datePicker,
+  .timePicker {
+    width: 100%;
   }
 }

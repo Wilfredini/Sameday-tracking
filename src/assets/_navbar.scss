@@ -1,0 +1,68 @@
+@use "./colors" as *;
+.mainNav {
+  background-color: $light;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+}
+
+.App-header {
+  .navBrand {
+    margin-left: 16px;
+    padding: 0;
+  }
+
+  .navLink {
+    text-align: center;
+    display: inline-block;
+    font-size: 1.1rem;
+    margin-left: 1.2rem;
+    font-weight: 700;
+    position: relative;
+  }
+
+  .navLink::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .navLink:hover::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    transition: width 0.5s;
+    background-color: #222324;
+  }
+
+  .navLink:focus::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #222324;
+  }
+
+  .navbar-collapse .navLink {
+    max-width: 300px;
+  }
+
+  .navbar-nav {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .btn {
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.6);
+  }
+}

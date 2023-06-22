@@ -1,34 +1,23 @@
-import { ReactElement, useState } from "react";
+import { ConfirmationForm } from "./ConfirmationForm";
+import Delivered from "./Delivered";
+import FlightSchedule from "./FlightSchedule";
+import GoodsRetrieved from "./GoodsRetrieved";
+import PickedUp from "./PickedUp";
+import TransportDetails from "./TransportDetails";
 
-export function useMultistepForm(steps: ReactElement[]) {
-  const [currentStepIndex, setCurrentStepIndex] = useState(0);
-
-  function next() {
-    setCurrentStepIndex((i) => {
-      if (i >= steps.length - 1) return i;
-      return i + 1;
-    });
+export const getCurrentForm = (step: any) => {
+  switch (step) {
+    case "CONFIRM_STEP":
+      return <ConfirmationForm />;
+    case "TRANSPORT_STEP":
+      return <TransportDetails />;
+    case "PICKED_STEP":
+      return <PickedUp />;
+    case "FLIGHT_STEP":
+      return <FlightSchedule />;
+    case "RETRIEVED_STEP":
+      return <GoodsRetrieved />;
+    case "DELIVERED_STEP":
+      return <Delivered />;
   }
-
-  function back() {
-    setCurrentStepIndex((i) => {
-      if (i <= 0) return i;
-      return i - 1;
-    });
-  }
-
-  function goTo(index: number) {
-    setCurrentStepIndex(index);
-  }
-
-  return {
-    currentStepIndex,
-    step: steps[currentStepIndex],
-    goTo,
-    next,
-    back,
-    steps,
-    isFirstStep: currentStepIndex === 0,
-    isLastStep: currentStepIndex === steps.length - 1,
-  };
-}
+};
